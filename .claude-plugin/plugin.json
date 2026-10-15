@@ -1,0 +1,6 @@
+{
+  "name": "limits-handy",
+  "version": "0.1.0",
+  "description": "Schickt Sitzungs- und Wochenlimit sowie den Tab-Status an die Android-App „Claude Limits“ – auch aus der Claude-Desktop-App.",
+  "author": { "name": "David" }
+}
