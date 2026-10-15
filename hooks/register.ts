@@ -197,7 +197,7 @@ export const register: Register = on => {
     return {
       text:
         `Kopplungs-PIN fürs Handy: ${r.pin}\n` +
-        'In der App „Claude Limits“ unter „Datenquelle“ eingeben. Gültig für 15 Minuten.',
+        'In der Handy-App „Claude Limits“ bei Schritt 3 eintragen und auf „Koppeln“ tippen. Gültig für 15 Minuten.',
     }
   })
 }
