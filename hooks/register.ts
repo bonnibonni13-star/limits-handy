@@ -1,6 +1,6 @@
 import type { EngineInterface, Register, SessionRateLimit } from 'claude-code'
 
-// Claude Limits: meldet Sitzungs- und Wochenlimit sowie den Status dieses Tabs an den
+// Limit Ring: meldet Sitzungs- und Wochenlimit sowie den Status dieses Tabs an den
 // Briefkasten, aus dem die Android-App liest. Läuft im Terminal und in der Desktop-App.
 // Gesendet werden nur Zahlen, Zeiten, Sitzungs-ID, Ordner, Titel und Gerätename –
 // nie ein Prompt oder eine Antwort.
@@ -116,12 +116,12 @@ export const register: Register = on => {
     const started = await next(e)
     await $.command.register({
       name: BEFEHL,
-      description: 'Claude Limits: PIN anzeigen, um dein Android-Handy zu koppeln',
+      description: 'Limit Ring: PIN anzeigen, um dein Android-Handy zu koppeln',
     })
     leise(
       (async () => {
         const k = await konfig($)
-        if (k?.neu) $.ui.toast(`Claude Limits: Mit /${BEFEHL} koppelst du dein Handy.`)
+        if (k?.neu) $.ui.toast(`Limit Ring: Mit /${BEFEHL} koppelst du dein Handy.`)
         await tabMelden($, 'wartet')
         const { rateLimits } = await $.session.usage()
         limitsVormerken($, rateLimits)
@@ -193,11 +193,11 @@ export const register: Register = on => {
     const r = (await senden($, { aktion: 'koppeln-start' }).catch(() => undefined)) as
       | { pin?: string }
       | undefined
-    if (!r?.pin) return { text: 'Claude Limits: Die PIN konnte gerade nicht abgeholt werden. Bitte später noch einmal.' }
+    if (!r?.pin) return { text: 'Limit Ring: Die PIN konnte gerade nicht abgeholt werden. Bitte später noch einmal.' }
     return {
       text:
         `Kopplungs-PIN fürs Handy: ${r.pin}\n` +
-        'In der Handy-App „Claude Limits“ bei Schritt 3 eintragen und auf „Koppeln“ tippen. Gültig für 15 Minuten.',
+        'In der Handy-App „Limit Ring“ bei Schritt 3 eintragen und auf „Koppeln“ tippen. Gültig für 15 Minuten.',
     }
   })
 }

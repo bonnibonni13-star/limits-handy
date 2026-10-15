@@ -1,6 +1,6 @@
 {
   "name": "limits-handy",
-  "description": "Claude-Code-Limits und offene Tabs auf dem Android-Handy (App „Claude Limits“).",
+  "description": "Claude-Code-Limits und offene Tabs auf dem Android-Handy (App „Limit Ring“).",
   "owner": { "name": "David" },
   "plugins": [{ "name": "limits-handy", "source": "./" }]
 }
